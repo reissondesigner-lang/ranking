@@ -29,6 +29,7 @@ document.body.classList.toggle("dark")
 
 if ('serviceWorker' in navigator) {
 
-navigator.serviceWorker.register('/service-worker.js')
+navigator.serviceWorker.register('service-worker.js')
+
 
 }
