@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Ranking Elite de Águias</title>
+
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="css/style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<script defer src="js/supabase.js"></script>
+
+<script defer src="js/auth.js"></script>
+
+<script defer src="js/app.js"></script>
+
+<script defer src="js/ranking.js"></script>
+
+<script defer src="js/vendas.js"></script>
+
+<script defer src="js/admin.js"></script>
+
+</head>
+
+<body>
+
+<header class="topbar">
+
+<div class="logo-area">
+<img src="assets/logo.png" class="logo">
+<h1>Ranking Elite de Águias</h1>
+</div>
+
+<div class="top-actions">
+<button id="darkToggle">🌙</button>
+<button onclick="logout()">Sair</button>
+</div>
+
+</header>
+
+<section id="loginScreen" class="screen">
+
+<div class="card login-card">
+
+<h2>Acesso Distribuidor</h2>
+
+<input id="codigo" placeholder="Código distribuidor">
+
+<input id="senha" type="password" placeholder="Senha">
+
+<button onclick="login()">Entrar</button>
+
+</div>
+
+</section>
+
+<section id="dashboard" class="screen hidden">
+
+<h2>Dashboard</h2>
+
+<div class="dashboard-cards">
+
+<div class="stat">
+<h3>Posição Atual</h3>
+<span id="posicaoAtual">-</span>
+</div>
+
+<div class="stat">
+<h3>Vendas do Mês</h3>
+<span id="vendasMes">R$0</span>
+</div>
+
+<div class="stat">
+<h3>Vendas da Semana</h3>
+<span id="vendasSemana">R$0</span>
+</div>
+
+</div>
+
+<div class="dashboard-actions">
+
+<button onclick="abrirRanking()">Ranking</button> <button onclick="abrirRegistrarVenda()">Registrar Venda</button>
+
+</div>
+
+</section>
+
+<section id="rankingScreen" class="screen hidden">
+
+<h2>Ranking</h2>
+
+<div class="ranking-tabs">
+
+<button onclick="loadRanking('week')">Semanal</button> <button onclick="loadRanking('month')">Mensal</button> <button onclick="loadRanking('year')">Anual</button>
+
+</div>
+
+<div class="top3">
+
+<div class="top-card" id="top2">
+<h3>🥈</h3>
+<span class="nome"></span>
+</div>
+
+<div class="top-card winner" id="top1">
+<h3>🥇</h3>
+<span class="nome"></span>
+</div>
+
+<div class="top-card" id="top3">
+<h3>🥉</h3>
+<span class="nome"></span>
+</div>
+
+</div>
+
+<div id="rankingList"></div>
+
+<button onclick="exportarPDF()">Exportar PDF</button>
+
+</section>
+
+<section id="registrarVenda" class="screen hidden">
+
+<h2>Registrar Venda</h2>
+
+<div class="card">
+
+<input id="valorVenda" placeholder="Valor da venda">
+
+<input id="dataVenda" type="date">
+
+<button onclick="salvarVenda()">Salvar</button>
+
+</div>
+
+</section>
+
+<section id="adminScreen" class="screen hidden">
+
+<h2>Painel Admin</h2>
+
+<button onclick="loadTodasVendas()">Ver Todas Vendas</button>
+
+<div id="listaVendas"></div>
+
+</section>
+
+</body>
+</html>
