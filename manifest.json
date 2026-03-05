@@ -1,7 +1,7 @@
 {
 "name":"Ranking Elite de Águias",
 "short_name":"Ranking Águias",
-"start_url":"index.html",
+"start_url":"./index.html",
 "display":"standalone",
 "background_color":"#0A2A66",
 "theme_color":"#0A2A66",
@@ -13,3 +13,4 @@
 }
 ]
 }
+
